@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv">这是我的div容器</div>
+
+
+<script>
+    var div = document.querySelector('.myDiv')
+
+
+    // 新增dom
+
+    // 第一步创建
+
+    // 参数为元素的标签名
+    var newDiv = document.createElement('div')
+
+    // 修改元素内容
+    newDiv.innerHTML = '这是我添加的div1231231231212'
+
+    // 修改元素类名
+    newDiv.className = 'active'
+
+    // 修改元素id
+    newDiv.id = '123'
+
+    // 修改元素样式
+    newDiv.style.color = 'blue'
+    newDiv.style.fontSize = '30px'
+    newDiv.style.backgroundColor = 'yellow'
+    console.log(newDiv)
+    // 新增
+
+    div.appendChild(newDiv)
+
+    console.log(div);
+</script>
+
+
+</body>
+</html>

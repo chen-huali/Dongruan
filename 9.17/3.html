@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date1=new Date().getTime();
+        var date2=new Date(2025,11,11).getTime();//结束
+        var date3=date2-date1;//时间差
+        var days=parseInt(date3/(24*3600*1000))
+        var lms=date3%(24*3600*1000) 
+
+        document.write(" 相差 "+days+"天 "+lms+"毫秒  ");
+        
+        var Week = ['日','一','二','三','四','五','六'];
+        var week=new Date(2025,11,11).getDay();
+        var str="是星期"+Week[week];
+        document.write(str);        
+    </script>
+</body>
+</html>

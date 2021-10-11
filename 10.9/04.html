@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            ul.list li:first-child {
+                color: red;
+            }
+
+            .active {
+                background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">这是通过id查找的div</div>
+
+        <div class="div-class">这是通过class查找的div1</div>
+        <div class="div-class">这是通过class查找的div2</div>
+        <div class="div-class">这是通过class查找的div3</div>
+        <div class="div-class">这是通过class查找的div4</div>
+        <div class="div-class">这是通过class查找的div5</div>
+        <div class="div-class">这是通过class查找的div6</div>
+
+        <input type="text" id="" class="" name="test">
+        <input type="text" id="" class="" name="test">
+        <input type="text" id="" class="" name="test">
+
+        <ul class="list">
+            <li class="active">item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item6</li>
+        </ul>
+
+        <script>
+            // 增删改查
+
+            // 查找dom
+            // id查找---返回一个dom元素
+            // console.log(document.getElementById('div1'))
+
+            // class查找---返回数组
+            // console.log(document.getElementsByClassName('div-class'))
+
+            // 元素名查找
+            // console.log(document.getElementsByTagName('div'))
+
+            // 属性查找
+            // console.log(document.querySelector('input[name=test]'));
+
+            // 选择器查找
+            // querySelector
+            // console.log(document.querySelector('ul.list li:first-child'));
+            // console.log(document.querySelector('div'));
+
+            // querySelectorAll
+            // console.log(document.querySelectorAll('div'));
+            // console.log(document.querySelectorAll('input[name=test]'));
+
+            // 获取属性
+            console.log(document.getElementById('div1').getAttribute('id'));
+
+            // 设置属性
+            document.querySelector('ul.list li:first-child').setAttribute('class', '')
+
+            setTimeout(() => {
+                document.querySelector('ul.list li:first-child').setAttribute('class', 'active')
+            }, 3000)
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .clearfix::before,
+    .clearfix::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    body {
+        /* 设置字体 */
+        font: 12px/1.5 Microsoft YaHei;
+    }
+
+    /* 设置外部容器的样式 */
+    .top-bar-wrapper {
+        /* 设置宽度 */
+        width: 100%;
+        /* 设置背景颜色 */
+        background-color: #E3E4E5;
+        height: 30px;
+        /* 设置行高，没有设置高度 使文字垂直居中 */
+        line-height: 30px;
+        /* 设置下边框 */
+        border-bottom: 1px #ddd solid
+    }
+
+    /* 设置内部容器的样式 */
+    .top-bar {
+        /* 固定宽度 */
+        width: 1190px;
+        /* 设置水平居中 */
+        margin: 0 auto;
+        /*使其成为下面子元素的定位基准 */
+        position: relative;
+
+    }
+
+
+    /* 设置字体样式 */
+    .top-bar a,
+    .top-bar span,
+    .top-bar i {
+        color: #999;
+        text-decoration: none;
+    }
+
+    .top-bar a:hover,
+    .top-bar a.highlight {
+        color: #f10215;
+    }
+
+    /* 设置location */
+    .location {
+        float: left;
+    }
+
+    /* 设置location下的小图标 */
+    .location .fas {
+        color: #f10215;
+    }
+
+    /* 设置城市列表的效果 */
+    .location .city-list {
+        display: none;
+        width: 320px;
+        height: 436px;
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        /* 设置绝对定位，使其不占据页面的位置 */
+        position: absolute;
+        top: 31px;
+        /*使其一直优先显示而不被后期的元素覆盖*/
+        z-index: 999;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, .2)
+    }
+
+    /* 当鼠标移入到location时，让city-list显示 */
+    .location:hover .city-list {
+        display: block;
+    }
+
+    .current-city {
+        padding: 0 10px;
+
+        /*用在border上面:transparent 颜色透明
+         用在background-color上面:transparent  背景透明 
+
+         正常显示时,也有边框(颜色透明)
+        */
+        border: 1px solid transparent;
+        border-bottom: none;
+
+
+        position: relative;
+        /* 设置z-index属性,提高元素的层次,使其优先显示,而不被其他元素覆盖
+        */
+        z-index: 9999;
+    }
+
+    /* 设置current-city的移入的效果 */
+    .location:hover .current-city {
+        background-color: white;
+        /* 重新设置边框 (正常显示时已设置,这样移入就不会出现增大的效果)*/
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        /* 扩大盒子:使其延伸到兄弟元素*/
+        padding-bottom: 1px;
+    }
+
+    /* 设置link_myJD父容器的样式 */
+    .link_myJD_parent {
+        width: 80px;
+        float: left;
+    }
+
+
+    .link_myJD_parent:hover .link_myJD {
+
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        padding-bottom: 1px;
+    }
+
+
+    .link_myJD_parent:hover .myjd_dropdownlist {
+        display: block;
+    }
+
+    /*设置link_myJD的样式 */
+    .link_myJD {
+        width: 80px;
+        position: relative;
+        height: 100%;
+        text-align: center;
+
+        position: relative;
+        z-index: 9999;
+    }
+
+    /*设置我的京东列表信息样式 */
+    .myjd_dropdownlist {
+        display: none;
+        width: 280px;
+        height: 150px;
+        background-color: white;
+        position: absolute;
+        z-index: 999;
+        top: 31px;
+        left: 221.5px;
+        border: 1px solid rgb(204, 202, 202);
+    }
+
+    /* 设置.link_corporateprocurement父容器样式*/
+    .link_corporateprocurement_parent {
+        width: 70px;
+        float: left;
+    }
+    /*鼠标移入父容器,设置子元素link_corporateprocurement的样式*/
+    .link_corporateprocurement_parent:hover .link_corporateprocurement {
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        padding-bottom: 1px;
+    }
+
+    /*显示企业采购信息列表 */
+    .link_corporateprocurement_parent:hover .corporateprocurementdropdownlist {
+        display: block;
+    }
+
+    /*设置link_corporateprocurement样式 */
+    .link_corporateprocurement {
+        width: 70px;
+        height: 30px;
+        position: relative;
+        z-index: 9999;
+        text-align: center;
+    }
+
+    /* 设置企业采购信息列表样式 */
+    .corporateprocurementdropdownlist {
+        display: none;
+        width: 140px;
+        height: 100px;
+        position: absolute;
+        z-index: 999;
+        top: 31px;
+        background-color: white;
+        border: 1px solid rgb(204, 202, 202);
+    }
+
+
+    /* 设置link_customerservice父容器样式*/
+    .customerservice_parent {
+        width: 70px;
+        float: left;
+    }
+
+    /*鼠标移入父容器,设置子元素link_customerservice的样式*/
+    .customerservice_parent:hover .link_customerservice {
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        padding-bottom: 1px;
+    }
+
+    /*显示客户服务信息列表 */
+    .customerservice_parent:hover .customerservicedropdownlist {
+        display: block;
+    }
+
+    /*设置link_customerservice样式 */
+    .link_customerservice {
+        width: 70px;
+        height: 30px;
+        position: relative;
+        z-index: 9999;
+        text-align: center;
+    }
+
+    /* 设置客户服务信息列表样式 */
+    .customerservicedropdownlist {
+        display: none;
+        width: 140px;
+        height: 200px;
+        position: absolute;
+        z-index: 999;
+        top: 31px;
+        right: 166px;
+        background-color: white;
+        border: 1px solid rgb(204, 202, 202);
+    }
+
+
+    /* 设置link_sitenav父容器样式*/
+    .sitenav_parent {
+        width: 70px;
+        float: left;
+    }
+
+    /*鼠标移入父容器,设置子元素link_sitenav的样式*/
+    .sitenav_parent:hover .link_sitenav {
+        cursor: pointer;
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        padding-bottom: 1px;
+    }
+
+    /*显示网站导航信息列表 */
+    .sitenav_parent:hover .sitenavdropdownlist {
+        display: block;
+    }
+
+    /*设置link_sitenav样式 */
+    .link_sitenav {
+        width: 70px;
+        height: 30px;
+        position: relative;
+        z-index: 9999;
+        text-align: center;
+    }
+
+    /* 设置网站导航信息列表样式 */
+    .sitenavdropdownlist {
+        display: none;
+        width: 1188px;
+        height: 157px;
+        position: absolute;
+        z-index: 999;
+        top: 31px;
+        right: 10px;
+        border: 1px solid rgb(204, 202, 202);
+
+    }
+
+
+    .flex-container {
+display: -webkit-flex;
+display: flex;
+width: 400px;
+height: 250px;
+background-color: lightgrey;
+}
+
+    /* 设置shortcut */
+    .shortcut {
+        margin-top: 0%;
+        float: right;
+        position: relative;
+        list-style: none;
+    }
+
+    /* 设置分割线 */
+    .shortcut .line {
+        width: 1px;
+        height: 10px;
+        background-color: rgb(204, 202, 202);
+        margin: 12px 12px 0;
+        
+    }
+
+    /* 设置li */
+    .shortcut li {
+        float: left;
+        
+    }
+
+    .link_login{
+        float: left;
+    }
+</style>
+</head>
+
+<body>
+<!-- 创建外围的容器 -->
+<div class="top-bar-wrapper">
+    <!-- 创建内部容器 -->
+    <div class="top-bar clearfix">
+        <!-- 左侧的菜单 -->
+        <div class="location">
+            <div class="current-city">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="javascript:;">北京</a>
+            </div>
+
+            <!-- 放置城市列表的div -->
+            <div class="city-list">
+
+            </div>
+        </div>
+
+        <!-- 右侧的菜单 -->
+        <ul class="shortcut clearfix">
+            <li class="link_login">
+                <a href="javascript:;">你好，请登录</a>
+                <a class=" highlight" href="javascript:;">免费注册</a>
+            </li>
+
+            <!-- 分割线 -->
+           
+            <li class="link_orders"><a href="javascript:;">我的订单</a></li>
+
+            <li class="line"></li>
+            <!--为link_myJD添加一个外部容器 -->
+            <div class="link_myJD_parent">
+                <li class="link_myJD">
+                    <a href="javascript:;">我的京东</a>
+                     <!--向下图标字体 -->
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <!--我的京东列表信息 -->
+                <li class="myjd_dropdownlist">
+                </li>
+            </div>
+
+            <li class="line"></li>
+            <li class="link_JDVIP"><a href="javascript:;">京东会员</a></li>
+
+            <li class="line"></li>
+
+            <div class="link_corporateprocurement_parent">
+                <li class="link_corporateprocurement">
+                    <a class="highlight" href="javascript:;">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <!--企业采购列表信息 -->
+                <li class="corporateprocurementdropdownlist">
+                </li>
+            </div>
+
+            <li class="line"></li>
+            <!--客户服务信息父容器 -->
+            <div class="customerservice_parent">
+                <li class="link_customerservice">
+                    <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <!--客户服务信息列表 -->
+                <li class="customerservicedropdownlist"></li>
+            </div>
+
+            <li class="line"></li>
+
+            <!--创建网站导航父容器 -->
+            <div class="sitenav_parent">
+                <li class="link_sitenav">
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <!--网站导航信息列表 -->
+                <li class="sitenavdropdownlist"></li>
+            </div>
+
+            <li class="line"></li>
+            <li class="link_phoneJD">
+                <span>手机京东</span>
+            </li>
+
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>

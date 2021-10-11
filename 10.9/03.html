@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var str = 'get-element-by-id'
+
+        // 要求 将str字符串的格式由横杠连接转换为驼峰
+
+        // getElementById
+
+
+        // split toUperrCase
+
+        var copyStr = ''
+        var strArr = str.split('-')
+
+        for (var i = 0; i < strArr.length; i++) {
+            // console.log(strArr[i])
+
+            // console.log(strArr[i].slice(0, 1))
+            // console.log(strArr[i].slice(1))
+
+            console.log(strArr[i].slice(0, 1).toUpperCase() + strArr[i].slice(1))
+
+            strArr[i] = strArr[i].slice(0, 1).toUpperCase() + strArr[i].slice(1)
+        }
+
+        copyStr = strArr.join('')
+        console.log(strArr)
+        console.log(copyStr.slice(0, 1).toLowerCase() + copyStr.slice(1))
+
+    </script>
+</body>
+</html>

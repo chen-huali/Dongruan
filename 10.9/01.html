@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        // 数组api
+        var arr1 = [1,2,3,4]
+        //          0 1 2 3
+        var arr2 = [5,6,7,8]
+
+        // concat --- 拼接
+        // 不改变原数组
+        // console.log(arr1.concat(arr2, [111, 222], [333, 444]))
+
+        // join --- 加入
+        // 将数组转换为参数拼接的字符串
+
+        // [1,2,3,4] ----> 1,2,3,4
+        // console.log(arr1)
+        // 不改变原数组
+        // console.log(arr1.join('+'))
+
+        // console.log(arr1)
+        // console.log(arr2)
+
+        // reverse --- 反转
+        // 改变原数组
+        // console.log(arr1.reverse())
+        // console.log(arr1)
+
+        // slice --- 选取
+        // 选取第一个参数到第二个参数之间的数组元素
+        // 含头不含尾
+        // 不改变原数组
+        // console.log(arr1.slice(0, 2 + 1))
+
+        // console.log(arr1);
+
+
+        // push --- 按，压 (压入)               pop --- 弹出
+        // 直接压入参数内容,从数组的结尾位置     从数组的结尾位置
+        // 得到数组的length                    得到弹出去的元素
+        // 改变原数组                          改变原数组
+
+        // console.log(arr1)
+        // console.log(arr1.push([111,222,333]))
+        // console.log(arr1)
+
+        // console.log(arr1);
+        // console.log(arr1.pop());
+        // console.log(arr1);
+
+
+        // shift                                  unshift
+        // 返回值是弹出去的元素                     返回值是数组的length
+        // 弹出一个元素，从数组的开头位置弹出        压入一个元素，从数组的开头压入
+        // 改变原数组                              改变原数组
+
+        // console.log(arr1);
+        // console.log(arr1.shift());
+        // console.log(arr1);
+
+        // console.log(arr1);
+        // console.log(arr1.unshift(666));
+        // console.log(arr1);
+
+        // splice --- 删除
+        // 删除，从第一个参数位置删除，删几个元素，将删除的元素替换为第三个删除内容
+        // 返回值是被删除的元素组成的数组
+        // 改变原数组
+
+        console.log(arr1);
+        console.log(arr1.splice(0, 2, 999));
+        console.log(arr1);
+
+    </script>
+</body>
+</html>

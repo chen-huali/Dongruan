@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #ddd;
+      background: #aaa;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+
+  <script>
+    // 什么是闭包？
+    // 闭包就是能够读取其他函数内部变量的函数
+    // 定义在函数内部的函数
+
+    // 函数局部作用域
+    function test1 () {
+      var a = 100
+
+      return function () {
+        return a
+      }
+    }
+
+    // var test = 100
+
+    // console.log(test) // 100
+
+    console.log(test1()()) // 100
+
+    // 在全局作用域中拿到局部作用域的变量
+    // 要求在全局的作用域中分别拿到test1和test2函数的变量值
+
+    // 实际的应用场景
+
+    var divs = document.querySelectorAll('div')
+
+    // 函数作用域问题
+    for (var i = 0; i < divs.length; i++) {
+      console.log(divs[i])
+
+      divs[i].onclick = (function (i) {
+        return function () {
+          alert(i)
+        }
+      })(i)
+    }
+
+    // 函数执行以后，销毁作用域
+    // 如果函数内部，不存在被引用的对象，那么，销毁作用域，否则将此函数引用保留
+
+  </script>
+</body>
+</html>

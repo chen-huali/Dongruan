@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        // 要求
+        // 1.用js创建ul元素,class名为list，添加到body中
+        // 2.循环创建5个li
+        // 3.给所有li添加active类名，并添加style样式(字体大小为40px)
+        // 4.创建统一class(active):颜色为红色，背景为蓝色
+        // 5.将操作完成的li添加进ul中
+        // 最后循环所有li，将li的内容改成(item + 索引)
+        var body = document.querySelector('body')
+        var ul = document.createElement('ul')
+
+        ul.className = 'list'
+
+        body.appendChild(ul)
+
+        for (var i = 0; i < 5; i++) {
+            var li = document.createElement('li')
+
+            li.className = 'active'
+
+            li.style.fontSize = '40px'
+
+            li.innerHTML = 'item' + i
+
+            ul.appendChild(li)
+        }
+
+    </script>
+</body>
+</html>

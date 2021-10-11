@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            width: 100%;
+            height: 50px;
+            background: #ddd;
+            line-height: 50px;
+            padding-left: 20px;
+        }
+
+        .header-left {
+            display: inline-block;
+            margin-right: 300px;
+        }
+
+        .header-right {
+            display: inline-block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-right li {
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 25px;
+            /* border-left: 1px solid #ddd; */
+        }
+
+        .header-right li + li {
+            border-left: 1px solid #aaa;
+        }
+
+        /* .header-right li:first-child {
+            border-left: none;
+        } */
+
+        .header-right li:hover {
+            color: red;
+        }
+        /* float | display: flex */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">您好，欢迎光临</div>
+
+        <ul class="header-right">
+            <li>请登录</li>
+            <li>免费注册</li>
+            <li>我的有路</li>
+            <li>我要开店</li>
+            <li>客服服务</li>
+            <li>手机端</li>
+            <li>微信公众号</li>
+        </ul>
+    </div>
+</body>
+</html>

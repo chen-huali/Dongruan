@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            ul.list li:first-child {
+                color: red;
+            }
+
+            .active {
+                background: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="list">
+            <li class="active">item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+            <li>item5</li>
+            <li>item6</li>
+        </ul>
+
+        <script>
+            // 修改dom
+            var ul = document.getElementsByClassName('list')[0]
+
+            var firstLi = document.querySelector('ul.list li:first-child')
+            console.log(ul)
+            console.log(firstLi);
+            // innerHTML
+            // 修改的内容会直接被转换为dom元素
+            // 拿到的内容是dom结构转换而来的字符串
+
+            // innerText
+            // 修改的内容会转换成string字符串
+            // 拿到的是dom元素中的文本内容
+
+            // 修改ul里面的内容
+            // ul.innerHTML = 123
+            // ul.innerText = 456
+
+            // ul.innerHTML = '<li class="myItem">这是我修改的li</li>'
+            // ul.innerText = '<li class="myItem">这是我修改的li</li>'
+
+            // 
+            // console.log(typeof ul.innerHTML)
+            // console.log(ul.innerHTML)
+            // console.log(ul.innerHTML.split('\n'))
+
+            console.log(ul.innerText)
+            console.log(ul.innerText.split('\n'))
+            // 修改li里面的内容
+        </script>
+    </body>
+</html>

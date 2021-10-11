@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑色渐变导航栏</title>
+
+</head>
+
+<body>
+    <div class="head">
+    <div class="nav">
+     <ul>
+         <li>首页</li>
+         <li>我的相册</li>
+         <li>我的日志</li>
+         <li>我的音乐盒</li>
+         <li>我的介绍</li>
+         <li>留言本</li>
+     </ul>
+    </div>
+</div>
+</body>
+
+<style>
+    .head
+     {
+       width: 100%;
+       height: 45px;
+       background:linear-gradient(#cccccc 20%, #222224 80%);;
+       line-height: 45px;
+       padding-left: 100px;
+    }
+ 
+   .nav ul
+   {
+       list-style: none;
+       display:inline-block;
+       padding: 0;
+       margin: 0px;
+
+   }
+
+   .nav ul li
+   {
+       display: inline-block;
+       padding: 0 10px;
+       color:white;
+   }
+
+   .nav ul li:hover{
+      background-color: rgb(155, 155, 155);
+      color:rgb(0, 0, 0);
+      height: 45px;
+   }
+</style>
+</html>

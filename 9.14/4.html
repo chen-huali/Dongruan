@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东页面</title>
+ 
+</head>
+<body>
+    <ul class="box">
+        <img src="./images/定位.png"  class="dw">
+        <li class="addrees">深圳</li>
+        <ul class="right">
+            <li>你好,请登录</li>
+            <li><span style="color: red;">免费注册</span>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            <li>我的订单&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li>我的京东&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li>京东会员&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li><span style="color:red" class="qycg">企业采购</span>&nbsp;&nbsp;&nbsp;&nbsp;|
+                <div class="dropdown-menu">
+                    <ul >
+                        <li>222</li>
+                        <li>333</li>
+                        <li>444</li>
+                        <li>555</li>
+                        <li>666</li>
+                        <li>777</li>
+                    </ul>
+                </div>
+        </li>
+            <li>客户服务&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li>网站导航&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li>手机京东</li>
+        </ul>
+    </ul>
+</body>
+
+<style>
+    .box
+    {
+        width: 100%;
+        height: 30px;
+        background: rgb(218, 218, 218);
+        list-style: none;
+        position:absolute;
+    }
+
+    .right
+    {
+        list-style: none;
+        display:flex;
+        justify-content: flex-end;
+        margin-right: 200px;
+    }
+
+    .right li
+    {
+        color:slategray;
+        font-size: 14px;
+        margin-top: 5px;
+        padding-right: 25px;
+        cursor: pointer;
+    }
+
+    .right li span:hover:nth-child(1)
+    {
+        color:red;
+    }
+
+    .dw
+    {
+        position:absolute;
+        left: 200px;
+        top:-5px;
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
+    }
+
+    .addrees
+    {
+        color:slategray;
+        font-size: 14px;
+        margin-top: 5px;
+        position: absolute;
+        left:225px;
+        cursor: pointer;
+    }
+
+    .qycg:hover
+    {
+
+        background-color: white;
+
+    }
+
+    .dropdown-menu 
+    {
+        padding-top: 8px;
+        position: absolute;
+        top: 30px;
+        left: 890px;
+        width: 150px;
+        height: 150px;
+        box-sizing: border-box;
+        display: none;
+        background:	#F5F5F5;
+    }   
+
+    .dropdown-menu ul
+    {
+        list-style: none;
+    }
+    
+    .right li:nth-child(6):hover .dropdown-menu
+    {
+        display: block;
+    }
+
+</style>
+</html>
